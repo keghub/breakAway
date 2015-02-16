@@ -1,0 +1,76 @@
+﻿@using BreakAway.Models.Customer
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+{
+<fieldset>
+    <legend>Filter</legend>
+    <div>
+        @Html.LabelFor(m => m.Filter.FirstName, "First name")
+        @Html.TextBoxFor(m => m.Filter.FirstName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Filter.LastName, "Last name")
+        @Html.TextBoxFor(m => m.Filter.LastName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Filter.CustomerType, "Customer type")
+        @Html.DropDownListFor(m => m.Filter.CustomerType, Model.CustomerTypes, "--- Customer type ---")
+    </div>
+    <input type="submit" value="Filter"/>
+</fieldset>
+    
+}
+
+@Html.ActionLink("Add a new customer", "Add", "Customer")
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Type</th>
+            <th>Primary activity</th>
+            <th>Secondary activity</th>
+            <th></th>
+        </tr>    
+    </thead>
+    <tbody>
+    @foreach (var customer in Model.Customers)
+    {
+        <tr>
+            <td>@Html.ActionLink(customer.Id.ToString(), "Edit", "Customer", new { customerId = customer.Id }, null)</td>
+            <td>@customer.FirstName</td>
+            <td>@customer.LastName</td>
+            <td>@customer.Type</td>
+            <td>@customer.PrimaryActivity</td>
+            <td>@customer.SecondaryActivity</td>
+            <td>
+            @using (Html.BeginForm("Delete", "Customer"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                @Html.Hidden("CustomerId", customer.Id)
+                <input type="submit" value="Delete" />
+            }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<ul class="pager">
+    @for (int i = 1; i < Model.Paging.TotalPages; i++)
+    {
+    <li @(i == Model.Paging.CurrentPageIndex ? Html.Raw("class=\"current-page\""): null)>@Html.ActionLink(i.ToString(), "Index", "Customer", new { page = i }, null)</li>
+    }
+</ul>
+
+

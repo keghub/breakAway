@@ -1,0 +1,50 @@
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.Mappings.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.Mappings.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\EntityFramework.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Framework.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.FluentEF.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Database.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\EntityFramework.xml
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Framework.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.FluentEF.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Database.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\Domain.Aggregates.Mappings.csprojResolveAssemblyReference.cache
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\BreakAway.Domain.Aggregates.Mappings.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\BreakAway.Domain.Aggregates.Mappings.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Cache.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.Cache.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Repositories.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Castle.Core.dll
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Cache.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.Cache.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Repositories.pdb
+C:\Users\Renato\Documents\Visual Studio 2010\Projects\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Castle.Core.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.Mappings.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.Mappings.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Cache.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\EntityFramework.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Framework.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.Cache.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.FluentEF.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Repositories.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Database.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Castle.Core.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Aggregates.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Cache.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\EntityFramework.xml
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Framework.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.Cache.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.RepositoryBase.FluentEF.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\BreakAway.Domain.Repositories.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Studentum.Infrastructure.Database.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\bin\Debug\Castle.Core.pdb
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\Domain.Aggregates.Mappings.csprojResolveAssemblyReference.cache
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\BreakAway.Domain.Aggregates.Mappings.dll
+E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates.Mappings\obj\Debug\BreakAway.Domain.Aggregates.Mappings.pdb
