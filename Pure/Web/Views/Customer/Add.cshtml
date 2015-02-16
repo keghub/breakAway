@@ -1,0 +1,57 @@
+﻿@model BreakAway.Models.Customer.AddViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+    @Html.ActionLink("Back to customer list", "Index")
+
+@if (!string.IsNullOrEmpty(ViewBag.message))
+{
+    <p style="font-style:italic">@ViewBag.message</p>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(p => p.Id);
+    @Html.AntiForgeryToken();
+    <fieldset>
+        <legend>Customer Information</legend>
+        <div>
+            @Html.LabelFor(p => p.FirstName,labelText:"First name:")
+            @Html.TextBoxFor(p => p.FirstName)
+        </div>
+        <div>
+            @Html.LabelFor(p => p.LastName,labelText:"Last name:")
+            @Html.TextBoxFor(p => p.LastName)
+        </div>   
+        <div>
+            @Html.LabelFor(p => p.Title, labelText: "Title:")
+            @Html.TextBoxFor(p => p.Title)
+        </div>
+        <div>
+            @Html.LabelFor(p => p.CustomerTypeId, labelText: "Customer type")
+            @Html.DropDownListFor(p => p.CustomerTypeId, Model.CustomerTypes)
+        </div> 
+        <div>
+            @Html.LabelFor(p => p.Notes, labelText: "Notes:")
+            <br />
+            @Html.TextAreaFor(p => p.Notes, new { cols = "50", rows = 3 })
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Activities</legend>
+        <div>
+            @Html.LabelFor(p => p.PrimaryActivityId,labelText: "Primary activity:")
+            @Html.DropDownListFor(p => p.PrimaryActivityId, Model.Activities, "--- Select activity ---")
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Destinations</legend>
+        <div>
+            @Html.LabelFor(p => p.PrimaryActivityId, labelText:"Primary destination:")
+            @Html.DropDownListFor(p => p.PrimaryDestinationId, Model.Destinations, "--- Select destination ---")
+        </div>
+    </fieldset>
+    <input type="submit" value="Save"/>
+}

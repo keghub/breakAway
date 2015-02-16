@@ -1,0 +1,32 @@
+﻿@model BreakAway.Models.Customer.IndexViewModel
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.message))
+{
+    <p>@ViewBag.message</p>
+}
+
+@Html.ActionLink("Add a new Customer", "Add", "Customer")
+
+<table>
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Type</th>
+    </tr>
+    @foreach (var customer in Model.Customers)
+    {
+        <tr>
+            <td>@Html.ActionLink("Details", "Edit", new{id = customer.Id})</td>
+            <td>@customer.Title</td>
+            <td>@customer.FirstName</td>
+            <td>@customer.LastName</td>
+            <td>@customer.Type</td>
+        </tr>
+    }
+</table>
