@@ -14,19 +14,38 @@ namespace BreakAway.Web.Controllers
 {
     public class CustomerController : Controller
     {
+        private const int PageSize = 25;
+        private readonly IRepository<Customer> _customerRepository;
+
+        public CustomerController()
+        {
+            _customerRepository = RepositoryFactory.GetReadOnlyRepository<CustomerRepository>();
+        }
+
         [UrlRoute(Path = "customer")]
         public ActionResult Index(IndexViewModel.Form filter = null, string sortExpression = null, int page = 1, string message = null)
         {
-            CustomerRepository repository = RepositoryFactory.GetReadOnlyRepository<CustomerRepository>();
             filter = filter ?? new IndexViewModel.Form();
 
             if (!string.IsNullOrWhiteSpace(message))
                 ViewBag.Message = message;
 
-            int pageSize = 25;
-            int skipIndex = (page - 1)*pageSize;
+            var skipIndex = (page - 1)*PageSize;
 
-            IQueryable<Customer> customers = repository.Items;
+            int totalItems;
+
+            var customers = GetCustomers(filter, skipIndex, out totalItems);
+
+            var items = TransofmToCustomerItem(customers);
+
+            var viewModel = new IndexViewModel {Paging = new PagingInfo(page, totalItems, PageSize), Filter = filter, Customers = items.ToArray()};
+
+            return View(viewModel);
+        }
+
+        private IQueryable<Customer> GetCustomers(IndexViewModel.Form filter, int skipIndex, out int totalItems)
+        {
+            var customers = _customerRepository.Items;
 
             if (!string.IsNullOrWhiteSpace(filter.FirstName))
                 customers = customers.Where(c => c.FirstName.StartsWith(filter.FirstName));
@@ -36,30 +55,30 @@ namespace BreakAway.Web.Controllers
 
             if (filter.CustomerType.HasValue)
             {
-                int customerTypeId = (int)filter.CustomerType.Value;
+                var customerTypeId = (int) filter.CustomerType.Value;
                 customers = customers.Where(c => c.CustomerTypeId == customerTypeId);
             }
 
-            int totalItems = customers.Count();
+            totalItems = customers.Count();
 
             customers = customers.OrderBy(c => c.LastName).ThenBy(c => c.FirstName);
 
-            customers = customers.Skip(skipIndex).Take(pageSize);
+            customers = customers.Skip(skipIndex).Take(PageSize);
+            return customers;
+        }
 
+        private static IEnumerable<IndexViewModel.CustomerItem> TransofmToCustomerItem(IQueryable<Customer> customers)
+        {
             var items = customers.Select(c => new IndexViewModel.CustomerItem
             {
                 Id = c.Id,
                 FirstName = c.FirstName.Trim(),
                 LastName = c.LastName.Trim(),
-                Type = (CustomerType)c.CustomerTypeId,
+                Type = (CustomerType) c.CustomerTypeId,
                 PrimaryActivity = c.PrimaryActivity.Name,
                 SecondaryActivity = c.SecondaryActivity.Name
             });
-
-            IndexViewModel viewModel = new IndexViewModel {Paging = new PagingInfo(page, totalItems, pageSize), Filter = filter, Customers = items.ToArray()};
-
-            return View(viewModel);
+            return items.ToList();
         }
-
     }
-}
+} 

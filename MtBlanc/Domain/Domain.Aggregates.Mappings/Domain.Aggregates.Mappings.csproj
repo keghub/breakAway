@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BreakAway</RootNamespace>
     <AssemblyName>BreakAway.Domain.Aggregates.Mappings</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,22 +31,36 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.Framework">
-      <HintPath>..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.Framework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.RepositoryBase">
-      <HintPath>..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.RepositoryBase.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.Database, Version=1.0.0.26, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Database.1.0.0.26\lib\net45\Studentum.Infrastructure.Database.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.RepositoryBase.Cache">
-      <HintPath>..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.RepositoryBase.Cache.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.Framework, Version=1.0.0.227, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Framework.1.0.0.227\lib\net45\Studentum.Infrastructure.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.RepositoryBase.FluentEF">
-      <HintPath>..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.RepositoryBase.FluentEF.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.RepositoryBase, Version=1.0.0.62, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Repository.Base.1.0.0.62\lib\net45\Studentum.Infrastructure.RepositoryBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Studentum.Infrastructure.RepositoryBase.Cache, Version=1.0.0.58, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Repository.Cache.1.0.0.58\lib\net45\Studentum.Infrastructure.RepositoryBase.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="Studentum.Infrastructure.RepositoryBase.FluentEF, Version=1.0.0.56, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Repository.EFFluent.1.0.0.56\lib\net45\Studentum.Infrastructure.RepositoryBase.FluentEF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -63,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

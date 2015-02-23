@@ -11,3 +11,9 @@ E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates\bin\Debug\S
 E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates\bin\Debug\Studentum.Infrastructure.Framework.pdb
 E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates\obj\Debug\BreakAway.Domain.Aggregates.dll
 E:\Development\Internship\BreakAway.MtBlanc\Domain\Domain.Aggregates\obj\Debug\BreakAway.Domain.Aggregates.pdb
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\bin\Debug\BreakAway.Domain.Aggregates.dll
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\bin\Debug\BreakAway.Domain.Aggregates.pdb
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\bin\Debug\Studentum.Infrastructure.Framework.dll
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\obj\Debug\Domain.Aggregates.csprojResolveAssemblyReference.cache
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\obj\Debug\BreakAway.Domain.Aggregates.dll
+C:\Development\Breakaway\MtBlanc\Domain\Domain.Aggregates\obj\Debug\BreakAway.Domain.Aggregates.pdb

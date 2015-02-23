@@ -28,3 +28,16 @@ E:\Development\Internship\BreakAway.MtBlanc\Domain\BreakAway.Domain.Repositories
 E:\Development\Internship\BreakAway.MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\Domain.Repositories.csprojResolveAssemblyReference.cache
 E:\Development\Internship\BreakAway.MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\BreakAway.Domain.Repositories.dll
 E:\Development\Internship\BreakAway.MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\BreakAway.Domain.Repositories.pdb
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\BreakAway.Domain.Repositories.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\BreakAway.Domain.Repositories.pdb
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\BreakAway.Domain.Aggregates.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Castle.Core.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Studentum.Infrastructure.Database.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Studentum.Infrastructure.Framework.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Studentum.Infrastructure.RepositoryBase.Cache.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Studentum.Infrastructure.RepositoryBase.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\BreakAway.Domain.Aggregates.pdb
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\bin\Debug\Castle.Core.xml
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\Domain.Repositories.csprojResolveAssemblyReference.cache
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\BreakAway.Domain.Repositories.dll
+C:\Development\Breakaway\MtBlanc\Domain\BreakAway.Domain.Repositories\Domain.Repositories\obj\Debug\BreakAway.Domain.Repositories.pdb

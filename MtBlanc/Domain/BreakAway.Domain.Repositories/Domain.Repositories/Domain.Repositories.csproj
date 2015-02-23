@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BreakAway</RootNamespace>
     <AssemblyName>BreakAway.Domain.Repositories</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,16 +31,26 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Studentum.Infrastructure.Framework">
-      <HintPath>..\..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.Framework.dll</HintPath>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\..\Packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.RepositoryBase">
-      <HintPath>..\..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.RepositoryBase.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.Database, Version=1.0.0.26, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Packages\Studentum.Infrastructure.Database.1.0.0.26\lib\net45\Studentum.Infrastructure.Database.dll</HintPath>
     </Reference>
-    <Reference Include="Studentum.Infrastructure.RepositoryBase.FluentEF">
-      <HintPath>..\..\..\Infrastructure\MtBlanc Assemblies\Studentum.Infrastructure.RepositoryBase.FluentEF.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.Framework, Version=1.0.0.227, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Packages\Studentum.Infrastructure.Framework.1.0.0.227\lib\net45\Studentum.Infrastructure.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Studentum.Infrastructure.RepositoryBase, Version=1.0.0.62, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Packages\Studentum.Infrastructure.Repository.Base.1.0.0.62\lib\net45\Studentum.Infrastructure.RepositoryBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Studentum.Infrastructure.RepositoryBase.Cache">
+      <HintPath>..\..\..\..\Packages\Studentum.Infrastructure.Repository.Cache.1.0.0.58\lib\net45\Studentum.Infrastructure.RepositoryBase.Cache.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,6 +71,9 @@
       <Project>{0922B85C-74A3-4494-8699-ACFB6145D4B5}</Project>
       <Name>Domain.Aggregates</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
