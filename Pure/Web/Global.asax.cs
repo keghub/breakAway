@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Web;
@@ -17,8 +18,12 @@ namespace BreakAway
 
         private static void BootstrapContainer()
         {
-            _container = new WindsorContainer()
-                .Install(FromAssembly.This());
+            _container = new WindsorContainer();
+            
+            _container.Kernel.Resolver.AddSubResolver(new CollectionResolver(_container.Kernel));
+
+            _container.Install(FromAssembly.This());
+
             var controllerFactory = new WindsorControllerFactory(_container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
         }
