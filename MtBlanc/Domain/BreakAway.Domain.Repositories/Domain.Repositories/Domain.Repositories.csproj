@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Domain\ActivityRepository.cs" />
     <Compile Include="Domain\CustomerRepository.cs" />
-    <Compile Include="Domain\EquipmentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

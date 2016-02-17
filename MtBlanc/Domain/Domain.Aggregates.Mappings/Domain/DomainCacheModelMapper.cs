@@ -14,7 +14,6 @@ namespace BreakAway.Domain
             CacheModelMapping modelMapping = new CacheModelMapping();
 
             var activity = modelMapping.Entity<Activity>();
-            var equipment = modelMapping.Entity<Equipment>();
 
             return modelMapping;
         }

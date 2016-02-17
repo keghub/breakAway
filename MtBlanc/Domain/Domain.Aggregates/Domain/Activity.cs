@@ -17,8 +17,6 @@ namespace BreakAway.Domain
 
         [StringLength(50), Required]
         public string Category { get; set; }
-        
-        public virtual IList<Equipment> Equipments { get; set; }
 
         public int Key
         {

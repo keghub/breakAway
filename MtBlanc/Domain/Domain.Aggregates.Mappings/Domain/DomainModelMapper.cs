@@ -18,7 +18,6 @@ namespace BreakAway.Domain
         public void Map(DbModelBuilder modelBuilder)
         {            
             MapActivity(modelBuilder.Entity<Activity>());
-            MapEquipment(modelBuilder.Entity<Equipment>());
             MapAddress(modelBuilder.Entity<Address>());
             MapContact(modelBuilder.Entity<Contact>());
             MapCustomer(modelBuilder.Entity<Customer>());
@@ -245,15 +244,6 @@ namespace BreakAway.Domain
             entity.HasRequired(k => k.Contact).WithMany(c => c.Addresses).HasForeignKey(k => k.ContactId);
         }
 
-        private void MapEquipment(EntityTypeConfiguration<Equipment> entity)
-        {
-            entity.HasKey(k => k.Id).ToTable("Equipment");
-
-            entity.Property(k => k.Id).HasColumnName("EquipmentID");
-
-            entity.Property(k => k.Name).HasColumnName("Equipment");
-        }
-
         private void MapActivity(EntityTypeConfiguration<Activity> entity)
         {
             entity.HasKey(k => k.Id).ToTable("Activities");
@@ -265,8 +255,6 @@ namespace BreakAway.Domain
             entity.Property(k => k.ImagePath).HasColumnName("imagepath");
 
             entity.Property(k => k.Category).HasColumnName("Category");
-
-            entity.HasMany(k => k.Equipments).WithMany().Map(m => m.MapLeftKey("ActivityID").MapRightKey("EquipmentID").ToTable("ActivityEquipment"));
         }
 
         #endregion

@@ -53,7 +53,6 @@
     <Compile Include="Domain\Contact.cs" />
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Domain\Destination.cs" />
-    <Compile Include="Domain\Equipment.cs" />
     <Compile Include="Domain\Event.cs" />
     <Compile Include="Domain\Lodging.cs" />
     <Compile Include="Domain\Payment.cs" />
