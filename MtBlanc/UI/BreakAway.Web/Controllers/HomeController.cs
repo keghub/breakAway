@@ -12,7 +12,7 @@ namespace BreakAway.Web.Controllers
         [UrlRoute(Path ="")]
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Welcome to my website!";
 
             return View();
         }
