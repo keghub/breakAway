@@ -30,6 +30,5 @@ namespace BreakAway.Controllers
 
             return View(viewModel);
         }
-
     }
 }
