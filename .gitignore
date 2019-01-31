@@ -1,6 +1,13 @@
-bin/
-obj/
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+.vs/
+
+# Build results
 Packages/
-**/*.suo
-**/*.user
-**/*.sln
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
