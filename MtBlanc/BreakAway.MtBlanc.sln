@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Aggregates.Mappings"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Cache", "Domain\Domain.Cache\Domain.Cache.csproj", "{195F4EE6-45AB-445F-BEFE-30E21EFF6E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Repositories", "Domain\BreakAway.Domain.Repositories\Domain.Repositories\Domain.Repositories.csproj", "{E712967E-E843-4BF0-B31F-D45F33BCD1BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Repositories", "Domain\Domain.Repositories\Domain.Repositories.csproj", "{E712967E-E843-4BF0-B31F-D45F33BCD1BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakAway.Web", "UI\BreakAway.Web\BreakAway.Web.csproj", "{F98755C8-F7C8-474C-A4B5-E124839945EA}"
 EndProject
