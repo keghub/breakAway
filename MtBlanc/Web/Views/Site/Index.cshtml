@@ -1,0 +1,30 @@
+﻿@model BreakAway.Models.Sites.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sites</h2>
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Domain</th>
+            <th>Is active</th>
+            <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var site in Model.Sites)
+            {
+                <tr>
+                    <td>@site.Id</td>
+                    <td>@site.Domain</td>
+                    <td>@site.IsActive</td>
+                    <td>@site.Type</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
