@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0922B85C-74A3-4494-8699-ACFB6145D4B5}</ProjectGuid>
+    <ProjectGuid>{5FA6813D-44E7-4861-B944-82BE06FA87A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BreakAway</RootNamespace>
-    <AssemblyName>BreakAway.Domain.Aggregates</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>BreakAway.Domain</RootNamespace>
+    <AssemblyName>Domain.Aggregates</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,45 +29,31 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Studentum.Infrastructure.Framework, Version=1.0.0.227, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Framework.1.0.0.227\lib\net45\Studentum.Infrastructure.Framework.dll</HintPath>
+    <Reference Include="Studentum.Infrastructure.Framework, Version=1.0.0.304, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Packages\Studentum.Infrastructure.Framework.1.0.0.304\lib\net45\Studentum.Infrastructure.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Activity.cs" />
-    <Compile Include="Domain\Address.cs" />
-    <Compile Include="Domain\Contact.cs" />
-    <Compile Include="Domain\Customer.cs" />
-    <Compile Include="Domain\Destination.cs" />
-    <Compile Include="Domain\Event.cs" />
-    <Compile Include="Domain\Lodging.cs" />
-    <Compile Include="Domain\Payment.cs" />
-    <Compile Include="Domain\Reservation.cs" />
-    <Compile Include="Domain\Resort.cs" />
+    <Compile Include="Core\Sites\Site.cs" />
+    <Compile Include="Core\Sites\SiteType.cs" />
+    <Compile Include="Intranet\Users\Role.cs" />
+    <Compile Include="Intranet\Users\User.cs" />
+    <Compile Include="Intranet\Users\UserSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Domain\Domain.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

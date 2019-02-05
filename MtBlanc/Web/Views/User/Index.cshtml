@@ -1,0 +1,32 @@
+﻿@model BreakAway.Models.Users.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Site</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Site</td>
+                <td>@string.Join(", ", user.Roles)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
