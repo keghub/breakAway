@@ -11,6 +11,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using ITCloud.Web.Routing;
 using Studentum.Infrastructure.DependencyInjection;
 //using DependencyResolver = Studentum.Infrastructure.Utilities.DependencyResolver;
 
@@ -24,8 +25,10 @@ namespace BreakAway
             BreakAwayApplicationStarter.StartApplication();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            RouteTable.Routes.DiscoverMvcControllerRoutes(typeof(MvcApplication).Assembly, null);
             _container = CreateContainer();
         }
 
@@ -39,8 +42,6 @@ namespace BreakAway
 
             var controllerFactory = new WindsorControllerFactory(windsorContainer.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
-
-            //DependencyResolver.SetResolver(new WindsorDependencyResolver(windsorContainer.Kernel));
 
             return windsorContainer;
         }
