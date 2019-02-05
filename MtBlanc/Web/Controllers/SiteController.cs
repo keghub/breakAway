@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BreakAway.Domain.Core.Sites;
 using BreakAway.Models.Sites;
+using ITCloud.Web.Routing;
 
 namespace BreakAway.Controllers
 {
@@ -17,6 +18,7 @@ namespace BreakAway.Controllers
             _siteRepository = siteRepository ?? throw new ArgumentNullException(nameof(siteRepository));
         }
 
+        [UrlRoute(Path = "site/list")]
         public ActionResult Index()
         {
             var viewModel = new IndexViewModel();

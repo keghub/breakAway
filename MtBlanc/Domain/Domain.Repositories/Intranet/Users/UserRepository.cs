@@ -9,16 +9,10 @@ namespace BreakAway.Domain.Intranet.Users
 {
     public interface IUserRepository : IRepository<User>
     {
-        IQueryable<Role> Roles { get; }
     }
 
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
         public UserRepository(IRepositoryProviderBase repositoryProvider) : base(repositoryProvider) { }
-
-        public IQueryable<Role> Roles
-        {
-            get { return Provider.All<Role>(); }
-        }
     }
 }

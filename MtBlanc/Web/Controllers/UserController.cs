@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BreakAway.Domain.Intranet.Users;
 using BreakAway.Models.Users;
+using ITCloud.Web.Routing;
 
 namespace BreakAway.Controllers
 {
@@ -17,6 +18,7 @@ namespace BreakAway.Controllers
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
         }
 
+        [UrlRoute(Path = "user/list")]
         public ActionResult Index()
         {
             var viewModel = new IndexViewModel();
@@ -33,8 +35,7 @@ namespace BreakAway.Controllers
                 Id = p.Id,
                 Name =  p.Name,
                 Email =  p.Email,
-                Site = p.Site.Domain,
-                Roles = p.Roles.Select(r=>r.Name)
+                Site = p.Site.Domain
             });
 
             return result.ToList();

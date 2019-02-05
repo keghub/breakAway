@@ -19,7 +19,5 @@ namespace BreakAway.Models.Users
         public string Email  { get; set; }
 
         public string Site { get; set; }
-
-        public IEnumerable<string> Roles { get; set; }
     }
 }
