@@ -15,7 +15,7 @@ namespace BreakAway.Installers
                                       .BasedOn<IController>()
                                       .LifestyleTransient());
 
-            container.Register(Component.For<Repository>().ImplementedBy<SqlRepository>());
+            container.Register(Component.For<Repository>().ImplementedBy<SqlRepository>().LifeStyle.Transient);
 
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
