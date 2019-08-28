@@ -8,7 +8,7 @@ using BreakAway.Models.Contact;
 
 namespace BreakAway.Controllers
 {
-    public class ContactController:Controller
+    public class ContactController : Controller
     {
         private readonly Repository _repository;
 
@@ -21,18 +21,29 @@ namespace BreakAway.Controllers
             _repository = repository;
         }
 
-        public ActionResult Index( )
+        public ActionResult Index(string firstNameFilter, string lastNameFilter)
         {
             var viewModel = new IndexViewModel();
 
-            viewModel.Contacts = (from contact in _repository.Contacts
-                                   select new ContactItem
-                                   {
-                                       Id = contact.Id,
-                                       FirstName = contact.FirstName,
-                                       LastName = contact.LastName,
-                                       Title = contact.Title
-                                   }).ToArray();
+            var contacts = from contact in _repository.Contacts
+                           select contact;
+
+            if (!string.IsNullOrWhiteSpace(firstNameFilter))
+            {
+                contacts = contacts.Where(c => c.FirstName.Contains(firstNameFilter));
+            }
+            if (!string.IsNullOrWhiteSpace(lastNameFilter))
+            {
+                contacts = contacts.Where(c => c.LastName.Contains(lastNameFilter));
+            }
+            viewModel.Contacts = (from contact in contacts
+                                  select new ContactItem
+                                  {
+                                      Id = contact.Id,
+                                      FirstName = contact.FirstName,
+                                      LastName = contact.LastName,
+                                      Title = contact.Title
+                                  }).ToArray();
 
             return View(viewModel);
         }

@@ -6,10 +6,12 @@
 
 @Html.ActionLink("Add New Contact", "Add")
 
-<br />
-<input type="text" name="FirstName" placeholder="First name"/>
-<input type="text" name="LastName" placeholder="Last name" />
-<input type="submit" value="Search"/>
+@using (Html.BeginForm())
+{
+    @Html.TextBox("firstNameFilter","",new { placeholder="First name"})
+    @Html.TextBox("lastNameFilter", "", new { placeholder = "Last name" })
+    <input type="submit" value="Search"/>
+}
 
 <table>
     <tr>
