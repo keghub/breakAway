@@ -14,5 +14,6 @@ namespace BreakAway.Models.Contact
         public string LastName { get; set; }
 
         public string Title { get; set; }
+        
     }
 }

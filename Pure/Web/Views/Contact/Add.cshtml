@@ -1,12 +1,29 @@
 ﻿@model BreakAway.Models.Contact.AddViewModel
 
-@{ 
+@{
     ViewBag.Title = "Add New Contact";
 }
 
+@Html.ActionLink("Back to contact list", "Index")
+
 @using (Html.BeginForm())
 {
-
+    @Html.HiddenFor(c => c.Id);
+    <fieldset>
+        <legend>Contact Information</legend>
+        <div>
+            @Html.LabelFor(c => c.FirstName, labelText: "First name:")
+            @Html.TextBoxFor(c => c.FirstName)
+        </div>
+        <div>
+            @Html.LabelFor(c => c.LastName, labelText: "Last name:")
+            @Html.TextBoxFor(c => c.LastName)
+        </div>
+        <div>
+            @Html.LabelFor(c => c.Title, labelText: "Title:")
+            @Html.TextBoxFor(c => c.Title)
+        </div>
+    </fieldset>
+    <input type="submit" value="Save"/>
 }
 
-@Html.ActionLink("Back to contact list","Index")
