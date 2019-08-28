@@ -16,8 +16,6 @@ namespace BreakAway.Models.Contact
         public string LastName { get; set; }       
 
         public string Title { get; set; }       
-
-        public int AddressId { get; set; }
-        public virtual IEnumerable<Address> Addresses { get; set; }
+        
     }
 }
