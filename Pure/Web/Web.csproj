@@ -159,13 +159,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Contact.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Installers\DefaultInstaller.cs" />
+    <Compile Include="Models\Address\AddressViewModel.cs" />
     <Compile Include="Models\Contact\AddViewModel.cs" />
     <Compile Include="Models\Contact\EditViewModel.cs" />
     <Compile Include="Models\Contact\IndexViewModel.cs" />
