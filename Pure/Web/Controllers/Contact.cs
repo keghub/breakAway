@@ -85,5 +85,28 @@ namespace BreakAway.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public ActionResult Edit(EditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Edit", "Contact", model);
+            }
+
+            var contact = _repository.Contacts.FirstOrDefault(c => c.Id == model.Id);
+            if (contact == null)
+            {
+                return RedirectToAction("Index", "Contact", new { message = "Contact with id '" + model.Id + "' was not found" });
+            }
+
+            contact.FirstName = model.FirstName;
+            contact.LastName = model.LastName;
+            contact.Title = model.Title;
+
+            _repository.Save();
+
+            return RedirectToAction("Index", "Contact", new { id = contact.Id, message = "Changes saved successfully" });
+        }
     }
 }
