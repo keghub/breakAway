@@ -37,6 +37,12 @@ namespace BreakAway.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Add()
+        {
+            var viewModel = new AddViewModel { };
+            return View(viewModel);
+        }
+
         public ActionResult Edit(int id)
         {
 
