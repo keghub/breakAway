@@ -9,6 +9,7 @@ namespace BreakAway.Entities
     public abstract class Repository
     {
         public abstract ITable<Activity> Activities { get; }
+        public abstract ITable<Address> Addresses { get; }
         public abstract ITable<Contact> Contacts { get; }
         public abstract ITable<Customer> Customers { get; }
         public abstract ITable<Destination> Destinations { get; }

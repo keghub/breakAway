@@ -8,20 +8,41 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(c => c.Id);
-<fieldset>
-    <legend>Contact Information</legend>
-    <div>
-        @Html.LabelFor(c => c.Title, labelText: "Title:")
-        @Html.TextBoxFor(c => c.Title)
-    </div>
-    <div>
-        @Html.LabelFor(c => c.FirstName, labelText: "First name:")
-        @Html.TextBoxFor(c => c.FirstName)
-    </div>
-    <div>
-        @Html.LabelFor(c => c.LastName, labelText: "Last name:")
-        @Html.TextBoxFor(c => c.LastName)
-    </div>
-</fieldset>
+    <fieldset>
+        <legend>Contact Information</legend>
+        <div style="color:red;">
+            @Html.ValidationSummary()
+        </div>
+        <div>
+            @Html.LabelFor(c => c.Title, labelText: "Title:")
+            @Html.TextBoxFor(c => c.Title)
+        </div>
+        <div>
+            @Html.ValidationMessageFor(c => c.FirstName)
+            @Html.LabelFor(c => c.FirstName, labelText: "First name:")
+            @Html.TextBoxFor(c => c.FirstName)
+        </div>
+        <div>
+            @Html.LabelFor(c => c.LastName, labelText: "Last name:")
+            @Html.TextBoxFor(c => c.LastName)
+        </div>
+    </fieldset>
+
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Postalcode</th>
+            <th>Country</th>
+        </tr>
+        @foreach (var address in Model.Addresses)
+        {
+            <tr>
+                <td>@address.AddressType</td>
+                <td>@address.PostalCode</td>
+                <td>@address.CountryRegion</td>
+                <td>@Html.ActionLink("Details", "Edit", new { id = address.Id })</td>
+            </tr>
+        }
+    </table>
     <input type="submit" value="Save" />
 }

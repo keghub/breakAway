@@ -7,6 +7,7 @@ namespace BreakAway.Entities
     public interface IBreakAwayContext
     {
         IDbSet<Activity> Activities { get; }
+        IDbSet<Address> Addresses { get; }
         IDbSet<Contact> Contacts { get; }
         IDbSet<Customer> Customers { get; }
         IDbSet<Destination> Destinations { get; }
@@ -29,6 +30,7 @@ namespace BreakAway.Entities
             }
 
             Activities = Set<Activity>();
+            Addresses = Set<Address>();
             Contacts = Set<Contact>();
             Customers = Set<Customer>();
             Destinations = Set<Destination>();
@@ -40,6 +42,7 @@ namespace BreakAway.Entities
         }
 
         public IDbSet<Activity> Activities { get; private set; }
+        public IDbSet<Address> Addresses { get; private set; }
         public IDbSet<Contact> Contacts { get; private set; }
         public IDbSet<Customer> Customers { get; private set; }
         public IDbSet<Destination> Destinations { get; private set; }
@@ -267,7 +270,7 @@ namespace BreakAway.Entities
 
             entity.Property(k => k.ModifiedDate).HasColumnType("DATETIME");
 
-            entity.Property(k => k.RowVersion).HasColumnName("TimeStamp").IsRowVersion();
+            entity.Property(k => k.RowVersion).IsRowVersion();
 
             entity.HasRequired(k => k.Contact).WithMany(c => c.Addresses).HasForeignKey(k => k.ContactId);
         }

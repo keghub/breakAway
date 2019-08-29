@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace BreakAway.Models.Address
 {
-    public class AddressViewModel
+    public class EditViewModel
     {
+        //[Key]
         public int Id { get; set; }
 
         public Mail Mail { get; set; }
@@ -17,7 +16,7 @@ namespace BreakAway.Models.Address
 
         public string AddressType { get; set; }
 
-        //public int ContactId { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
     }
 

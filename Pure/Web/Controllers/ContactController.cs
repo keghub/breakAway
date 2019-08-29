@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using BreakAway.Entities;
 using BreakAway.Models.Contact;
+using BreakAway.Models.Address;
 
 namespace BreakAway.Controllers
 {
@@ -23,7 +22,7 @@ namespace BreakAway.Controllers
 
         public ActionResult Index(string firstNameFilter, string lastNameFilter)
         {
-            var viewModel = new IndexViewModel();
+            var viewModel = new Models.Contact.IndexViewModel();
 
             var contacts = from contact in _repository.Contacts
                            select contact;
@@ -86,23 +85,30 @@ namespace BreakAway.Controllers
                 return RedirectToAction("Index", "Contact");
             }
 
-            var viewModel = new EditViewModel
+            var viewModel = new Models.Contact.EditViewModel
             {
                 Id = contact.Id,
                 Title = contact.Title,
                 FirstName = contact.FirstName,
-                LastName = contact.LastName
-            };
+                LastName = contact.LastName,
+                Addresses = contact.Addresses.Select(address => new AddressIndexViewModel
+                {
+                    Id = address.Id,
+                    AddressType = address.AddressType,
+                    PostalCode = address.PostalCode,
+                    CountryRegion = address.CountryRegion
+                }).ToList()
+        };
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(EditViewModel model)
+        public ActionResult Edit(Models.Contact.EditViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Edit", "Contact", model);
+                return View(model);
             }
 
             var contact = _repository.Contacts.FirstOrDefault(c => c.Id == model.Id);

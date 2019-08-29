@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BreakAway.Entities
 {
@@ -18,6 +16,7 @@ namespace BreakAway.Entities
             _context = context;
 
             _activities = new DbSetTable<Activity>(_context.Activities);
+            _addresses = new DbSetTable<Address>(_context.Addresses);
             _contacts = new DbSetTable<Contact>(_context.Contacts);
             _customers = new DbSetTable<Customer>(_context.Customers);
             _destinations = new DbSetTable<Destination>(_context.Destinations);
@@ -29,6 +28,7 @@ namespace BreakAway.Entities
         }
 
         private readonly ITable<Activity> _activities;
+        private readonly ITable<Address> _addresses;
         private readonly ITable<Contact> _contacts;
         private readonly ITable<Customer> _customers;
         private readonly ITable<Destination> _destinations;
@@ -81,6 +81,11 @@ namespace BreakAway.Entities
         public override ITable<Lodging> Lodgings
         {
             get { return _lodgings; }
+        }
+
+        public override ITable<Address> Addresses
+        {
+            get { return _addresses; }
         }
 
         public override void Save()
