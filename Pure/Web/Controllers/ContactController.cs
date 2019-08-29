@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web.Mvc;
 using BreakAway.Entities;
 using BreakAway.Models.Contact;
-using BreakAway.Models.Address;
 
 namespace BreakAway.Controllers
 {
@@ -85,31 +84,39 @@ namespace BreakAway.Controllers
                 return RedirectToAction("Index", "Contact");
             }
 
-            var viewModel = new Models.Contact.EditViewModel
+            var viewModel = new EditViewModel
             {
                 Id = contact.Id,
                 Title = contact.Title,
                 FirstName = contact.FirstName,
                 LastName = contact.LastName,
-                Addresses = contact.Addresses.Select(address => new AddressIndexViewModel
+                Addresses = contact.Addresses.Select(address => new AddressViewModel
                 {
                     Id = address.Id,
                     AddressType = address.AddressType,
+                    Mail = new MailModel
+                    {
+                        Street1 = address.Mail.Street1,
+                        Street2 = address.Mail.Street2,
+                        City = address.Mail.City,
+                        StateProvince = address.Mail.StateProvince
+                    },
                     PostalCode = address.PostalCode,
                     CountryRegion = address.CountryRegion
                 }).ToList()
-        };
+            };
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(Models.Contact.EditViewModel model)
+        public ActionResult Edit(EditViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+
 
             var contact = _repository.Contacts.FirstOrDefault(c => c.Id == model.Id);
             if (contact == null)
@@ -120,6 +127,19 @@ namespace BreakAway.Controllers
             contact.FirstName = model.FirstName;
             contact.LastName = model.LastName;
             contact.Title = model.Title;
+
+            foreach (var item in model.Addresses)
+            {
+                var address = contact.Addresses.SingleOrDefault(a => a.Id == item.Id);
+                if (address == null) continue;
+                address.AddressType = item.AddressType;
+                address.PostalCode = item.PostalCode;
+                address.CountryRegion = item.CountryRegion;
+                address.Mail.Street1 = item.Mail.Street1;
+                address.Mail.Street2 = item.Mail.Street2;
+                address.Mail.City = item.Mail.City;
+                address.Mail.StateProvince = item.Mail.StateProvince;
+            }
 
             _repository.Save();
 

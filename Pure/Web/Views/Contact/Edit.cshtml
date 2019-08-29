@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "Edit";
 }
+
+<style>
+    fieldset {
+        margin: 20px 0;
+    }
+</style>
 @Html.ActionLink("Back to contact list", "Index")
 
 @using (Html.BeginForm())
@@ -28,21 +34,50 @@
         </div>
     </fieldset>
 
-    <table>
-        <tr>
-            <th>Type</th>
-            <th>Postalcode</th>
-            <th>Country</th>
-        </tr>
-        @foreach (var address in Model.Addresses)
+    <fieldset>
+        <legend>Address</legend>
+        @for (int i = 0; i < Model.Addresses.Count; i++)
         {
-            <tr>
-                <td>@address.AddressType</td>
-                <td>@address.PostalCode</td>
-                <td>@address.CountryRegion</td>
-                <td>@Html.ActionLink("Details", "Edit", new { id = address.Id })</td>
-            </tr>
+            @Html.HiddenFor(a => a.Addresses[i].Id);
+            <table style="border-collapse:collapse;border:1px solid lightgrey;margin-bottom:12px;">
+                <tr>
+                    <th>Type</th>
+                    <th>Postalcode</th>
+                    <th>Country</th>
+                    <th>State province</th>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].AddressType) </td>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].PostalCode)</td>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].CountryRegion)</td>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.StateProvince)</td>
+                </tr>
+                <tr>
+                    <th>Street1</th>
+                    <th>Street2</th>
+                    <th>City</th>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.Street1)</td>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.Street2)</td>
+                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.City)</td>
+                    <td><input style="margin:auto;display:block;background-color:indianred;" type="button" value="Remove"/></td>
+                </tr>
+            </table>
         }
-    </table>
+        <input style="background-color:lightseagreen" id="add-address" type="button" value="Add" />
+    </fieldset>
     <input type="submit" value="Save" />
 }
+
+<script>
+    $(document).ready(function () {
+        $('#add-address').click(function () {
+
+        });
+    });
+
+    function addAddressClick() {
+        alert('Hello!');
+    }
+</script>
