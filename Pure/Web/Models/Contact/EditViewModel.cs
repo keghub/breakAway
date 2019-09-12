@@ -36,7 +36,7 @@ namespace BreakAway.Models.Contact
         [StringLength(50)]
         public string PostalCode { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         public string AddressType { get; set; }
 
         public MailModel Mail { get; set; }

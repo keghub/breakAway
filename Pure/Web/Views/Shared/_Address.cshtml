@@ -1,13 +1,30 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>_Address</title>
-</head>
-<body>
-    <div>
-        <label for="AddressType">Type</label><br />
-        <input name="AddressType" id="AddressType" />
-    </div>
-</body>
-</html>
+﻿@model BreakAway.Models.Contact.AddressViewModel
+
+@using (Html.BeginCollectionItem("Addresses"))
+{
+    <table style="border-collapse:collapse;border:1px solid lightgrey;margin-bottom:12px;">
+        <tr>
+            <th>Type</th>
+            <th>Postalcode</th>
+            <th>Country</th>
+            <th>State province</th>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(a => a.AddressType, new { @class = "form-control" }) </td>
+            <td>@Html.TextBoxFor(a => a.PostalCode, new { @class = "form-control" })</td>
+            <td>@Html.TextBoxFor(a => a.CountryRegion, new { @class = "form-control" })</td>
+            <td>@Html.TextBoxFor(a => a.Mail.StateProvince, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <th>Street1</th>
+            <th>Street2</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(a => a.Mail.Street1, new { @class = "form-control" })</td>
+            <td>@Html.TextBoxFor(a => a.Mail.Street2, new { @class = "form-control" })</td>
+            <td>@Html.TextBoxFor(a => a.Mail.City, new { @class = "form-control" })</td>
+            <td><input id="remove-address" type="button" value="Remove" style="margin:auto;display:block;background-color:indianred;" /></td>
+        </tr>
+    </table>
+}

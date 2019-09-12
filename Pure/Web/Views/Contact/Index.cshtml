@@ -6,11 +6,12 @@
 
 @Html.ActionLink("Add New Contact", "Add")
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Contact", FormMethod.Get))
 {
-    @Html.TextBox("firstNameFilter","",new { placeholder="First name"})
-    @Html.TextBox("lastNameFilter", "", new { placeholder = "Last name" })
-    <input type="submit" value="Search"/>
+    @Html.TextBoxFor(m => m.FilterViewModel.Title, new { placeholder = "Title" })
+    @Html.TextBoxFor(m => m.FilterViewModel.FirstName, new { placeholder = "First name" })
+    @Html.TextBoxFor(m => m.FilterViewModel.LastName, new { placeholder = "Last name" })
+    <input type="submit" value="Search" />
 }
 
 <table>
@@ -30,3 +31,42 @@
     }
 </table>
 
+@{
+    var routeValues = new RouteValueDictionary();
+    var filterModel = Model.FilterViewModel;
+    var routeProperties = filterModel.GetType().GetProperties();
+
+    var filterRoutePrefix = Model.GetType().GetProperties()[1].Name;
+
+    if(routeProperties!=null && routeProperties.Count() > 0)
+    {
+        foreach (var routeProperty in routeProperties)
+        {
+            if(routeProperty.PropertyType == typeof(String))
+            {
+                routeValues.Add(filterRoutePrefix+"." +routeProperty.Name, routeProperty.GetValue(filterModel, null));
+            }
+            if(routeProperty.PropertyType == typeof(Boolean))
+            {
+                routeValues.Add(filterRoutePrefix + "." + routeProperty.Name, routeProperty.GetValue(filterModel, null).ToString());
+            }
+            //todo-> if routeProperty is a typeof list
+        }
+    }
+}
+
+@if (Model.PageViewModel.Page > 1)
+{
+    routeValues["page"] = Model.PageViewModel.Page - 1;
+    @Html.ActionLink("Previous", "Index", routeValues);
+}
+
+<span style="padding:3px">
+    @Html.DisplayTextFor(m => m.PageViewModel.Page)
+</span>
+
+@if (Model.PageViewModel.Page < Model.PageViewModel.TotalPage)
+{
+    routeValues["page"] = Model.PageViewModel.Page + 1;
+    @Html.ActionLink("Next", "Index", routeValues);
+}

@@ -3,45 +3,54 @@ using System.Linq;
 using System.Web.Mvc;
 using BreakAway.Entities;
 using BreakAway.Models.Contact;
+using BreakAway.Services;
 
 namespace BreakAway.Controllers
 {
     public class ContactController : Controller
     {
         private readonly Repository _repository;
+        private readonly IFilterService _filterService;
 
-        public ContactController(Repository repository)
+        private const int PageSize = 25;
+
+        public ContactController(Repository repository, IFilterService filterService)
         {
             if (repository == null)
             {
                 throw new ArgumentNullException("repository");
             }
+            if (filterService == null)
+            {
+                throw new ArgumentNullException(nameof(filterService));
+            }
             _repository = repository;
+            _filterService = filterService;
         }
 
-        public ActionResult Index(string firstNameFilter, string lastNameFilter)
+        public ActionResult Index([Bind(Prefix =nameof(IndexViewModel.FilterViewModel))]FilterItem filter, int? page)
         {
-            var viewModel = new Models.Contact.IndexViewModel();
+            filter = filter ?? new FilterItem();
+            page = page ?? 1;
 
-            var contacts = from contact in _repository.Contacts
-                           select contact;
+            var viewModel = new IndexViewModel();
+            IQueryable<Contact> contacts = _repository.Contacts;
 
-            if (!string.IsNullOrWhiteSpace(firstNameFilter))
+            //Filter
+            var filterModel = new FilterModel { Title = filter.Title, FirstName = filter.FirstName, LastName = filter.LastName };
+
+            var filteredContacts = _filterService.GetFilteredContacts(contacts, filterModel, page.Value, PageSize, out int totalPages);
+
+            //Paging
+            var pageModel = new PageItem
             {
-                contacts = contacts.Where(c => c.FirstName.Contains(firstNameFilter));
-            }
-            if (!string.IsNullOrWhiteSpace(lastNameFilter))
-            {
-                contacts = contacts.Where(c => c.LastName.Contains(lastNameFilter));
-            }
-            viewModel.Contacts = (from contact in contacts
-                                  select new ContactItem
-                                  {
-                                      Id = contact.Id,
-                                      FirstName = contact.FirstName,
-                                      LastName = contact.LastName,
-                                      Title = contact.Title
-                                  }).ToArray();
+                Page = (int)page,
+                TotalPage = totalPages
+            };
+
+            viewModel.Contacts = filteredContacts.ToArray();
+            viewModel.FilterViewModel = filter;
+            viewModel.PageViewModel = pageModel;
 
             return View(viewModel);
         }
@@ -117,7 +126,6 @@ namespace BreakAway.Controllers
                 return View(model);
             }
 
-
             var contact = _repository.Contacts.FirstOrDefault(c => c.Id == model.Id);
             if (contact == null)
             {
@@ -128,22 +136,117 @@ namespace BreakAway.Controllers
             contact.LastName = model.LastName;
             contact.Title = model.Title;
 
-            foreach (var item in model.Addresses)
+            if (model.Addresses == null)
             {
-                var address = contact.Addresses.SingleOrDefault(a => a.Id == item.Id);
-                if (address == null) continue;
-                address.AddressType = item.AddressType;
-                address.PostalCode = item.PostalCode;
-                address.CountryRegion = item.CountryRegion;
-                address.Mail.Street1 = item.Mail.Street1;
-                address.Mail.Street2 = item.Mail.Street2;
-                address.Mail.City = item.Mail.City;
-                address.Mail.StateProvince = item.Mail.StateProvince;
+                // remove all addresses
+                var addresses = contact.Addresses.ToArray();
+                foreach (var address in addresses)
+                {
+                    _repository.Addresses.Delete(address);
+                }
+            }
+            else
+            {
+
+                foreach (var address in contact.Addresses.ToArray())
+                {
+                    var item = model.Addresses.SingleOrDefault(i => i.Id == address.Id);
+                    if (item == null)
+                    {
+                        //remove address
+                        _repository.Addresses.Delete(address);
+                        _repository.Save();
+                        continue;
+                    }
+                }
+
+                foreach (var item in model.Addresses.ToArray())
+                {
+
+                    var address = contact.Addresses.SingleOrDefault(a => a.Id == item.Id);
+                    if (address == null)
+                    {
+                        // add address
+                        var newMail = new Mail
+                        {
+                            Street1 = item.Mail.Street1,
+                            Street2 = item.Mail.Street2,
+                            City = item.Mail.City,
+                            StateProvince = item.Mail.StateProvince
+                        };
+
+                        var newAddress = new Address
+                        {
+                            ContactId = contact.Id,
+                            AddressType = item.AddressType,
+                            PostalCode = item.PostalCode,
+                            CountryRegion = item.CountryRegion,
+                            Mail = newMail,
+                            ModifiedDate = DateTime.Now
+                        };
+
+                        _repository.Addresses.Add(newAddress);
+                        _repository.Save();
+
+                        continue;
+                    }
+
+                    // update address if changed ??if changed -> EF change tracking
+                    if (item.AddressType != null) address.AddressType = item.AddressType;
+                    if (item.PostalCode != null) address.PostalCode = item.PostalCode;
+                    if (item.CountryRegion != null) address.CountryRegion = item.CountryRegion;
+                    if (item.Mail != null)
+                    {
+                        var itemMail = item.Mail;
+                        var addressMail = address.Mail;
+                        if (itemMail.Street1 != null) addressMail.Street1 = itemMail.Street1;
+                        if (itemMail.Street2 != null) addressMail.Street2 = itemMail.Street2;
+                        if (itemMail.City != null) addressMail.City = itemMail.City;
+                        if (itemMail.StateProvince != null) addressMail.StateProvince = itemMail.StateProvince;
+                    }
+                    address.ModifiedDate = DateTime.Now;
+                }
             }
 
             _repository.Save();
 
             return RedirectToAction("Index", "Contact", new { id = contact.Id, message = "Changes saved successfully" });
+        }
+
+        [HttpGet]
+        public ActionResult AddressLayout()
+        {
+            return View("_Address", new AddressViewModel());
+        }
+
+        public int GetPageNumber(int totalItem, int pageSize, int? page)
+        {
+            if (page == null)
+            {
+                return 1;
+            }
+
+            var totalPage = 0;
+            if (totalItem % pageSize == 0)
+            {
+                totalPage = totalItem / pageSize;
+            }
+            else
+            {
+                totalPage = totalItem / pageSize + 1;
+            }
+
+            var pageNumber = (int)page;
+            if (page < 1)
+            {
+                pageNumber = 1;
+            }
+            else if (page > totalPage)
+            {
+                pageNumber = totalPage;
+            }
+
+            return pageNumber;
         }
     }
 }

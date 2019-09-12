@@ -13,6 +13,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken();
     @Html.HiddenFor(c => c.Id);
     <fieldset>
         <legend>Contact Information</legend>
@@ -21,51 +22,30 @@
         </div>
         <div>
             @Html.LabelFor(c => c.Title, labelText: "Title:")
-            @Html.TextBoxFor(c => c.Title)
+            @Html.TextBoxFor(c => c.Title, new { @class = "form-control" })
         </div>
         <div>
             @Html.ValidationMessageFor(c => c.FirstName)
             @Html.LabelFor(c => c.FirstName, labelText: "First name:")
-            @Html.TextBoxFor(c => c.FirstName)
+            @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
         </div>
         <div>
             @Html.LabelFor(c => c.LastName, labelText: "Last name:")
-            @Html.TextBoxFor(c => c.LastName)
+            @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
         </div>
     </fieldset>
 
     <fieldset>
         <legend>Address</legend>
-        @for (int i = 0; i < Model.Addresses.Count; i++)
+        @if (Model.Addresses != null)
         {
-            @Html.HiddenFor(a => a.Addresses[i].Id);
-            <table style="border-collapse:collapse;border:1px solid lightgrey;margin-bottom:12px;">
-                <tr>
-                    <th>Type</th>
-                    <th>Postalcode</th>
-                    <th>Country</th>
-                    <th>State province</th>
-                </tr>
-                <tr>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].AddressType) </td>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].PostalCode)</td>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].CountryRegion)</td>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.StateProvince)</td>
-                </tr>
-                <tr>
-                    <th>Street1</th>
-                    <th>Street2</th>
-                    <th>City</th>
-                </tr>
-                <tr>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.Street1)</td>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.Street2)</td>
-                    <td>@Html.TextBoxFor(a => a.Addresses[i].Mail.City)</td>
-                    <td><input style="margin:auto;display:block;background-color:indianred;" type="button" value="Remove"/></td>
-                </tr>
-            </table>
+            foreach(var address in Model.Addresses)
+            {
+                @Html.Partial("_Address", address);
+            }
         }
-        <input style="background-color:lightseagreen" id="add-address" type="button" value="Add" />
+        <div id="div"></div>
+        <input id="add-address" type="button" value="Add" />
     </fieldset>
     <input type="submit" value="Save" />
 }
@@ -73,11 +53,19 @@
 <script>
     $(document).ready(function () {
         $('#add-address').click(function () {
+            console.log("hehe");
 
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("AddressLayout","Contact")",
+                success: function (addressLayout) {
+                   $("#div").append(addressLayout);
+                }
+            });
+        });
+        $('#remove-address').click(function () {
+            $(this).parent().parent().parent().remove();
         });
     });
 
-    function addAddressClick() {
-        alert('Hello!');
-    }
 </script>
