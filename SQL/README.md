@@ -1,4 +1,4 @@
-## Datebase setup to run Breakaway Pure
+## Database setup to run Breakaway Pure
 
 _IMPORTANT, prior to setting up the database, breakaway needs to be set up in IIS_
 
