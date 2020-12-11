@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BreakAway.Entities
 {
-    public class SqlRepository : Repository
+    public class SqlRepository : IRepository
     {
         private readonly IBreakAwayContext _context;
 
@@ -17,73 +17,36 @@ namespace BreakAway.Entities
 
             _context = context;
 
-            _activities = new DbSetTable<Activity>(_context.Activities);
-            _contacts = new DbSetTable<Contact>(_context.Contacts);
-            _customers = new DbSetTable<Customer>(_context.Customers);
-            _destinations = new DbSetTable<Destination>(_context.Destinations);
-            _events = new DbSetTable<Event>(_context.Events);
-            _equipments = new DbSetTable<Equipment>(_context.Equipments);
-            _payments = new DbSetTable<Payment>(_context.Payments);
-            _reservations = new DbSetTable<Reservation>(_context.Reservations);
-            _lodgings = new DbSetTable<Lodging>(_context.Lodgings);
+            Activities = new DbSetTable<Activity>(_context.Activities);
+            Contacts = new DbSetTable<Contact>(_context.Contacts);
+            Customers = new DbSetTable<Customer>(_context.Customers);
+            Destinations = new DbSetTable<Destination>(_context.Destinations);
+            Events = new DbSetTable<Event>(_context.Events);
+            Equipments = new DbSetTable<Equipment>(_context.Equipments);
+            Payments = new DbSetTable<Payment>(_context.Payments);
+            Reservations = new DbSetTable<Reservation>(_context.Reservations);
+            Lodgings = new DbSetTable<Lodging>(_context.Lodgings);
         }
 
-        private readonly ITable<Activity> _activities;
-        private readonly ITable<Contact> _contacts;
-        private readonly ITable<Customer> _customers;
-        private readonly ITable<Destination> _destinations;
-        private readonly ITable<Event> _events;
-        private readonly ITable<Equipment> _equipments;
-        private readonly ITable<Payment> _payments;
-        private readonly ITable<Reservation> _reservations;
-        private readonly ITable<Lodging> _lodgings;
+        public ITable<Activity> Activities { get; }
 
-        public override ITable<Activity> Activities
-        {
-            get { return _activities; }
-        }
+        public ITable<Contact> Contacts { get; }
 
-        public override ITable<Contact> Contacts
-        {
-            get { return _contacts; }
-        }
+        public ITable<Customer> Customers { get; }
 
-        public override ITable<Customer> Customers
-        {
-            get { return _customers; }
-        }
+        public ITable<Destination> Destinations { get; }
 
-        public override ITable<Destination> Destinations
-        {
-            get { return _destinations; }
-        }
+        public ITable<Equipment> Equipments { get; }
 
-        public override ITable<Equipment> Equipments
-        {
-            get { return _equipments; }
-        }
+        public ITable<Event> Events { get; }
 
-        public override ITable<Event> Events
-        {
-            get { return _events; }
-        }
+        public ITable<Payment> Payments { get; }
 
-        public override ITable<Payment> Payments
-        {
-            get { return _payments; }
-        }
+        public ITable<Reservation> Reservations { get; }
 
-        public override ITable<Reservation> Reservations
-        {
-            get { return _reservations; }
-        }
+        public ITable<Lodging> Lodgings { get; }
 
-        public override ITable<Lodging> Lodgings
-        {
-            get { return _lodgings; }
-        }
-
-        public override void Save()
+        public void Save()
         {
             _context.SaveChanges();
         }

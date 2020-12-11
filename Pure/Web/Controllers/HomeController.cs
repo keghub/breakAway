@@ -10,9 +10,9 @@ namespace BreakAway.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Repository _repository;
+        private readonly IRepository _repository;
 
-        public HomeController(Repository repository)
+        public HomeController(IRepository repository)
         {
             if (repository == null)
             {
