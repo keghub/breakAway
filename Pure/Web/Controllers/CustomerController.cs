@@ -10,9 +10,9 @@ namespace BreakAway.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly Repository _repository;
+        private readonly IRepository _repository;
 
-        public CustomerController(Repository repository)
+        public CustomerController(IRepository repository)
         {
             if (repository == null)
             {

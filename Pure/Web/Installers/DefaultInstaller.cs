@@ -15,11 +15,11 @@ namespace BreakAway.Installers
                                       .BasedOn<IController>()
                                       .LifestyleTransient());
 
-            container.Register(Component.For<Repository>().ImplementedBy<SqlRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IRepository>().ImplementedBy<SqlRepository>().LifeStyle.Transient);
 
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            container.Register(Component.For<IBreakAwayContext>().UsingFactoryMethod(() => new BreakAwayContext(connectionString)));
+            container.Register(Component.For<IBreakAwayContext>().UsingFactoryMethod(() => new BreakAwayContext(connectionString)).LifeStyle.Transient);
         }
     }
 }

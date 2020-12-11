@@ -49,7 +49,7 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Lodging.cs" />
     <Compile Include="Entities\Payment.cs" />
-    <Compile Include="Entities\Repository.cs" />
+    <Compile Include="Entities\IRepository.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\Resort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
