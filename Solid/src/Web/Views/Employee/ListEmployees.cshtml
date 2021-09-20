@@ -1,0 +1,68 @@
+﻿@model Web.Models.Employee.ListEmployeeViewModel
+
+@{
+    ViewData["Title"] = "List Employees";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1>Employees</h1>
+    </div>
+</div>
+
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Name)
+                @Html.TextBoxFor(m => m.Filter.Name, htmlAttributes: new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.DepartmentId, "Department")
+                @Html.DropDownListFor(m => m.Filter.DepartmentId, Model.Departments, "-- Select --", new {@class = "form-control"})
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Type, "Employee Type")
+                @Html.DropDownListFor(m => m.Filter.Type, Model.EmployeeTypes, "-- Select --", new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.EmployedSince, "Employed Since")
+                @Html.TextBoxFor(m => m.Filter.EmployedSince, new {@class="form-control", type="date"})
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><input class="btn btn-outline-primary" type="submit" value="Filter" /></div>
+    </div>
+}
+
+<div class="row" style="margin-top: 20px;">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Employee Type</th>
+                <th>Hire date</th>
+            </tr>
+            @foreach (var employeeItem in Model.Employees)
+            {
+                <tr>
+                    <td>@employeeItem.Name</td>
+                    <td>@employeeItem.Department</td>
+                    <td>@employeeItem.Type.ToString("G")</td>
+                    <td>@employeeItem.HireDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
