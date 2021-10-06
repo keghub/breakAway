@@ -1,0 +1,75 @@
+﻿@using System.Net
+@model Web.Models.Employee.CalculateSalaryViewModel
+
+@{
+    ViewData["Title"] = "Calculate Salary";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h1>Calculate salary</h1>
+    </div>
+</div>
+
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.EmployeeId, "Employee")
+                @Html.DropDownListFor(m => m.Filter.EmployeeId, Model.EmployeeItems, "-- Select --", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.DepartmentId, "Department")
+                @Html.DropDownListFor(m => m.Filter.DepartmentId, Model.Departments, "-- Select --", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Year)
+                @Html.DropDownListFor(m => m.Filter.Year, Model.Years, "-- Select --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Filter.Year)
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Month)
+                @Html.DropDownListFor(m => m.Filter.Month, Model.Months, "-- Select --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Filter.Month)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><input class="btn btn-outline-primary" type="submit" value="Calculate salary" /></div>
+    </div>
+}
+
+@if (Model.Employees != null && Model.Employees.Any())
+{
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-12">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Employee Type</th>
+                    <th style="text-align: end;">Salary</th>
+                </tr>
+                @foreach (var employeeItem in Model.Employees)
+                {
+                    <tr>
+                        <td>@employeeItem.Name</td>
+                        <td>@employeeItem.Department</td>
+                        <td>@employeeItem.Type.ToString("G")</td>
+                        <td style="text-align: end;">@employeeItem.Salary.ToString("C")</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
