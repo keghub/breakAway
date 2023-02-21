@@ -11,3 +11,5 @@ Packages/
 x64/
 [Bb]in/
 [Oo]bj/
+
+node_modules/
