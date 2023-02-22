@@ -7,7 +7,6 @@ export interface ICustomer {
     firstname: string;
     lastname: string;
     address: string;
-    createdAt: Date;
 }
 
 export const createCustomer = (): ICustomer => {
@@ -16,12 +15,11 @@ export const createCustomer = (): ICustomer => {
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
         address: faker.address.streetAddress(),
-        createdAt: faker.date.recent(100),
     }
 }
 
 export const createCustomerDoc = (customer: ICustomer): IdentifiedSanityDocumentStub => {
-    const { id, firstname, lastname, address, createdAt } = customer;
+    const { id, firstname, lastname, address } = customer;
 
     return {
         _id: `customer-${id}`,
@@ -29,6 +27,5 @@ export const createCustomerDoc = (customer: ICustomer): IdentifiedSanityDocument
         firstname,
         lastname,
         address,
-        createdAt,
     };
 }
