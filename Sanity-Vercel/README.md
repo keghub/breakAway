@@ -83,3 +83,6 @@ Success! Studio deployed to https://breakaway-{identifier}.sanity.studio/
 Create a token using sanity studio, give the token read and write access to your project. Add the token to your data-seeding config. 
 
 `node --experimental-specifier-resolution=node --loader ts-node/esm data-seeding.ts`
+
+Inspect the result data.ndjson file to see what is going to be imported into sanity. Then run the import using the sanity cli
+`sanity dataset import data.ndjson {your-dataset}`

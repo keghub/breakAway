@@ -2,9 +2,7 @@
 // https://fakerjs.dev
 
 import { faker } from "@faker-js/faker";
-import { createClient } from "@sanity/client";
-
-import { config } from "./config.js";
+import fs from "fs";
 
 import { createCustomer, createCustomerDoc } from "./dataTypes/customer.js";
 import { createOrder, createOrderDoc } from "./dataTypes/order.js";
@@ -19,14 +17,17 @@ const numberOfOrders = faker.datatype.number({ min: 200, max: 300 });
 const numberOfCustomers = faker.datatype.number({ min: 200, max: 300 });
 
 console.info(`Will create:
-    ${numberOfSites} sites
-    ${numberOfProducts} products
-    ${numberOfOrders} orders
-    ${numberOfCustomers} customers`)
+${numberOfSites} sites
+${numberOfProducts} products
+${numberOfOrders} orders
+${numberOfCustomers} customers`
+);
 
 const sites = new Array(numberOfSites)
     .fill({})
     .map(() => createSite());
+
+const siteDocs = sites.map(s => createSiteDoc(s));
 
 const products = new Array(numberOfProducts)
     .fill({})
@@ -37,6 +38,8 @@ const products = new Array(numberOfProducts)
         return product;
     });
 
+const productDocs = products.map(p => createProductDoc(p));
+
 const orders = new Array(numberOfOrders)
     .fill({})
     .map(() => {
@@ -46,89 +49,21 @@ const orders = new Array(numberOfOrders)
         return order;
     });
 
+const orderDocs = orders.map(o => createOrderDoc(o));
+
 const customers = new Array(numberOfCustomers)
     .fill({})
     .map(() => createCustomer());
 
-const sanityClient = createClient(config);
+const customerDocs = customers.map(c => createCustomerDoc(c));
 
-// Add sites to sanity
-const setupSites = async () => {
-    console.info("Setting up sites...");
+console.info("Writing data to file: data.ndjson");
 
-    const sitePromises = sites.map(site => {
-        const siteDoc = createSiteDoc(site);
-        return sanityClient.createOrReplace(siteDoc);
-    });
-    
-    await Promise.all(sitePromises)
-        .catch(err => {
-            console.error("Unable to create sites", err);
-            throw err;
-        });
+fs.writeFileSync("data.ndjson", 
+`${siteDocs.map(s => JSON.stringify(s)).join("\n")}
+${productDocs.map(p => JSON.stringify(p)).join("\n")}
+${orderDocs.map(o => JSON.stringify(o)).join("\n")}
+${customerDocs.map(c => JSON.stringify(c)).join("\n")}`
+);
 
-    console.info("Done");
-}
-
-// Add products to sanity
-const setupProducts = async () => {
-    console.info("Setting up products...");
-
-    const productPromises = products.map(product => {
-        const productDoc = createProductDoc(product);
-        return sanityClient.createOrReplace(productDoc);
-    });
-    
-    await Promise.all(productPromises)
-        .catch(err => {
-            console.error("Unable to create products", err);
-            throw err;
-        });
-        
-    console.info("Done");
-} 
-
-// Add orders to sanity
-const setupOrders = async () => {
-    console.info("Setting up orders...");
-
-    const orderPromises = orders.map(order => {
-        const orderDoc = createOrderDoc(order);
-        return sanityClient.createOrReplace(orderDoc);
-    });
-    
-    await Promise.all(orderPromises)
-        .catch(err => {
-            console.error("Unable to create orders", err);
-            throw err;
-        });
-        
-    console.info("Done");
-}
-
-// Add customers to sanity
-const setupCustomers = async () => {
-    console.info("Setting up customers...");
-
-    const customerPromises = customers.map(customer => {
-        const customerDoc = createCustomerDoc(customer);
-        return sanityClient.createOrReplace(customerDoc);
-    });
-    
-    await Promise.all(customerPromises)
-        .catch(err => {
-            console.error("Unable to create customers", err);
-            throw err;
-        });
-        
-    console.info("Done");
-}
-
-const setup = async () => {
-    await setupSites();
-    await setupProducts();
-    await setupOrders();
-    await setupCustomers();
-}
-
-setup().then(() => console.info("--- Script complete ---"));
+console.info("--- Script complete ---");
