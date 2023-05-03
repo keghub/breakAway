@@ -1,88 +1,51 @@
-Steps for intro on sanity sites
+# Intro
 
-### Step 1. Install sanity CLI
+The intro for sanity/nextjs sites will include a setup of the following projects
+1. Sanity studio where cms data can be hosted. The studio will be hosted in the sanity cloud using a personal plan. Don't worry, there is no charge for it. 
+2. NextJS project hosted on Vercel using typescript. The project will also use a free personal plan. 
+
+Please note that identifiers are typed within brackets {identifier}
+
+## Prerequisite
+
+This guides requires nodejs and npm to be installed and working. You can verify this by running the commands 
+`node -v`
+and
+`npm -v`
+
+## Setup
+
+Install the CLI for sanity and vercel. They will be used for creating and deploying your projects. 
+
+Sanity CLI
 `npm install -g @sanity/cli`
-### Step 2. Create a sanity project: 
-Run command
 
-`npm create sanity@latest`
+Vercel CLI 
+`npm install -g vercel`
 
-This will start a interactive setup for your sanity project. Use the following setup
+[Setup sanity studio](docs/sanity/setup.md)
+[Setup a nextjs project](docs/nextjs/setup.md)
 
-```
-✔ Fetching existing projects
+## Excercises
 
-? Select project to use 
-[Select] Create new project
+The execises will go through some of the basic concepts of sanity and nextjs. 
 
-? Your project name: 
-[Type] BreakAway
+## Sanity studio
 
-Your content will be stored in a dataset that can be public or private, depending on
-whether you want to query your content with or without authentication.
+[Add a field](docs/sanity/add-field.md)
+[Add a logo to the studio](docs/sanity/configure-studio.md)
+[Your first groq query](docs/sanity/groq.md)
+### First groq query
 
-The default dataset configuration has a public dataset named "production".
+## NextJS
 
-? Use the default dataset configuration? 
-[Select] Yes
-
-✔ Creating dataset
-Project output path: {project-path}/studio
-
-? Select project template 
-[Select] Clean project with no predefined schemas
-
-? Do you want to use TypeScript? 
-[Select] Yes
-
-✔ Bootstrapping files from template
-✔ Resolving latest module versions
-✔ Creating default project files
-
-Package manager to use for installing dependencies? 
-[Select] npm
-```
-
-### Step 3. Create a NextJS project: npx create-next-app@latest
-This will start a interactive setup for your NextJS project. Use the following setup
-
-```
-Your project name
-[Type] breakaway
-
-✔ Would you like to use TypeScript with this project?  
-[Select] Yes
-```
-
-### Step 4. Create a schema in sanity
-
-Copy schema files into the schemas. 
-
-Deploy the studio using the following command. 
-`sanity deploy`
-
-On the first deploy you will be asked a studio hostname. Please use the format `breakaway-{identifier}` to avoid name conflicts with other people who will run the breakaway project. 
-```
-✔ Checking project info
-Your project has not been assigned a studio hostname.
-To deploy your Sanity Studio to our hosted Sanity.Studio service,
-you will need one. Please enter the part you want to use.
-? Studio hostname (<value>.sanity.studio): 
-[Type] breakaway-{identifier}
-
-✔ Clean output folder (2ms)
-✔ Build Sanity Studio (10353ms)
-✔ Verifying local content
-✔ Deploying to Sanity.Studio
-
-Success! Studio deployed to https://breakaway-{identifier}.sanity.studio/
-```
-
-### Step 5. Populate schema with data. Run seeding script using following command 
-
-Create a token using sanity studio, give the token read and write access to your project. Add the token to your data-seeding config. 
-
-`node --experimental-specifier-resolution=node --loader ts-node/esm data-seeding.ts`
-
-Inspect the result data.ndjson file to see what is going to be imported into sanity. Then run the import using the sanity cli
-`sanity dataset import data.ndjson {your-dataset}`
+[First Deployment](docs/nextjs/deploy.md)
+[Install Tailwind](docs/nextjs/tailwind.md)
+[Create your first components](docs/nextjs/first-component.md)
+[Read data from sanity](docs/nextjs/read-from-sanity.md)
+[Render a page server side](docs/nextjs/render-server-side.md)
+[Render the page static](docs/nextjs/render-static.md)
+[Add a site listing route](docs/nextjs/first-route.md)
+[Add a site route](docs/nextjs/site-route.md)
+[Add a product route](docs/nextjs/product-route.md)
+[Add a order button to the product page](docs/nextjs/order-button.md)
