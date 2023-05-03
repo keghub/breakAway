@@ -23,7 +23,7 @@ export const createSite = (): ISite => {
 }
 
 export const createSiteDoc = (site: ISite): IdentifiedSanityDocumentStub => {
-    const { id, name, slug, slogan } = site;
+    const { id, name, slug, slogan, primaryColor } = site;
     
     return {
         _id: `site-${id}`,
@@ -31,5 +31,6 @@ export const createSiteDoc = (site: ISite): IdentifiedSanityDocumentStub => {
         name,
         slug,
         slogan,
+        primaryColor
     };
 }

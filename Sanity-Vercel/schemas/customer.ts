@@ -12,6 +12,11 @@ export default {
             name: "lastname",
             title: "Last Name",
             type: "string",
+        },
+        {
+            name: "email",
+            title: "Email",
+            type: "string",
         }
     ]
 }
