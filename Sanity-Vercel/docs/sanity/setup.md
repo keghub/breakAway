@@ -71,11 +71,13 @@ Navigate inside the `seeding`-folder, and run first `npm install`, and then:
 
 `node --experimental-specifier-resolution=node --loader ts-node/esm data-seeding.ts`
 
-Inspect the result data.ndjson file to see what is going to be imported into sanity. Then run the import using the sanity cli
-`sanity dataset import data.ndjson {your-dataset}`
+Inspect the result data.ndjson file to see what is going to be imported into sanity. 
+
+Switch folder back to the `studio`-folder, then run the import using the sanity cli
+`sanity dataset import ..\seeding\data.ndjson  {your-dataset}`
 
 ### Start the studio
-Start the studio using the command `npm run dev`. A local web page with the studio should start. Notice the entity listed to the right and how you can navigate among the different entities. 
+Start the studio using the command `npm run dev`. A local web page with the studio should start. Notice the entity listed to the left and how you can navigate among the different entities. 
 
 ### Deploy!
 Use the sanity CLI to deploy your new studio
