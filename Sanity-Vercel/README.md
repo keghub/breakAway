@@ -24,6 +24,7 @@ Vercel CLI
 `npm install -g vercel`
 
 [Setup sanity studio](docs/sanity/setup.md)
+
 [Setup a nextjs project](docs/nextjs/setup.md)
 
 ## Excercises
@@ -33,19 +34,30 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 ## Sanity studio
 
 [Add a field](docs/sanity/add-field.md)
+
 [Add a logo to the studio](docs/sanity/configure-studio.md)
+
 [Your first groq query](docs/sanity/groq.md)
 ### First groq query
 
 ## NextJS
 
 [First Deployment](docs/nextjs/deploy.md)
+
 [Install Tailwind](docs/nextjs/tailwind.md)
+
 [Create your first components](docs/nextjs/first-component.md)
+
 [Read data from sanity](docs/nextjs/read-from-sanity.md)
+
 [Render a page server side](docs/nextjs/render-server-side.md)
+
 [Render the page static](docs/nextjs/render-static.md)
+
 [Add a site listing route](docs/nextjs/first-route.md)
+
 [Add a site route](docs/nextjs/site-route.md)
+
 [Add a product route](docs/nextjs/product-route.md)
+
 [Add a order button to the product page](docs/nextjs/order-button.md)
