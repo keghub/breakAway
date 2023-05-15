@@ -74,7 +74,8 @@ Navigate inside the `seeding`-folder, and run first `npm install`, and then:
 Inspect the result data.ndjson file to see what is going to be imported into sanity. 
 
 Switch folder back to the `studio`-folder, then run the import using the sanity cli
-`sanity dataset import ..\seeding\data.ndjson  {your-dataset}`
+
+`sanity dataset import ..\seeding\data.ndjson {your-dataset}`
 
 ### Start the studio
 Start the studio using the command `npm run dev`. A local web page with the studio should start. Notice the entity listed to the left and how you can navigate among the different entities. 
