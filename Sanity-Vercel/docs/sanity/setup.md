@@ -1,5 +1,5 @@
 ### Step 1. Create a sanity project: 
-Run command
+In the new folder, run command
 
 `npm create sanity@latest`
 
@@ -41,7 +41,7 @@ Package manager to use for installing dependencies?
 
 ### Step 2. Create a schema in sanity
 
-Copy schema files into the schemas. 
+Copy [schema files](../../schemas) into the schemas-folder created in the new studio-folder. 
 
 Deploy the studio using the following command. 
 `sanity deploy`
@@ -65,7 +65,9 @@ Success! Studio deployed to https://breakaway-{identifier}.sanity.studio/
 
 ### Step 3. Populate schema with data. Run seeding script using following command 
 
-Create a token using sanity studio, give the token read and write access to your project. Add the token to your data-seeding config. 
+Copy [seeding folder](../../seeding) into new project folder previously created.
+
+Navigate inside the `seeding`-folder, and run first `npm install`, and then:
 
 `node --experimental-specifier-resolution=node --loader ts-node/esm data-seeding.ts`
 
