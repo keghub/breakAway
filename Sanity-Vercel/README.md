@@ -27,8 +27,6 @@ Vercel CLI
 
 [Setup sanity studio](docs/sanity/setup.md)
 
-[Setup a nextjs project](docs/nextjs/setup.md)
-
 ## Excercises
 
 The execises will go through some of the basic concepts of sanity and nextjs. 
@@ -43,6 +41,8 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 ### First groq query
 
 ## NextJS
+
+[Setup a nextjs project](docs/nextjs/setup.md)
 
 [First Deployment](docs/nextjs/deploy.md)
 
