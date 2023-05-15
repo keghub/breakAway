@@ -15,6 +15,8 @@ and
 
 ## Setup
 
+Create a new folder for the project, we will run/install everything in this folder.
+
 Install the CLI for sanity and vercel. They will be used for creating and deploying your projects. 
 
 Sanity CLI
