@@ -38,7 +38,6 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 [Add a logo to the studio](docs/sanity/configure-studio.md)
 
 [Your first groq query](docs/sanity/groq.md)
-### First groq query
 
 ## NextJS
 
