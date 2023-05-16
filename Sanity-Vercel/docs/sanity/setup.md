@@ -1,4 +1,9 @@
+### Step 0. Sign up to sanity: 
+
+Create an account on https://www.sanity.io/ (but don't run the suggested "npm create sanity" command
+
 ### Step 1. Create a sanity project: 
+
 In the new folder, run command
 
 `npm create sanity@latest`
