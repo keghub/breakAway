@@ -1,4 +1,4 @@
-### Go to vision component and add a groq query
+### Go to the vision component in sanity studio and add a groq query
 Learn the basics about groq queries here https://www.sanity.io/docs/groq
 
 Here are some suggested queries you can try out:
