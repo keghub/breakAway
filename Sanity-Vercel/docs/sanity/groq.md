@@ -10,3 +10,4 @@ Here are some suggested queries you can try out:
 ** Try to write the join both using the "dereference operator", and using a sub query
 * Select everything from the products with a price above a threshold
 * Select a specific product and dereference the site property
+* Update the query above to use the params instead for the filtering
