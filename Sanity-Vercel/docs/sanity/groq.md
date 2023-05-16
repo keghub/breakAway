@@ -7,7 +7,7 @@ Here are some suggested queries you can try out:
 * Select everything from the first 5 customers, sorted by `firstname`
 * Select `_id` and `email` from the first 5 customers, sorted by `firstname`
 * Select `_id`, `amount`, `product.name`, `product.price` from one order (add a filter on the `_id`). Here we will join in the product to the order
-** Try to write the join both using the "dereference operator", and using a sub query
+  * Try to write the join both using the "dereference operator", and using a sub query
 * Select everything from the products with a price above a threshold
 * Select a specific product and dereference the site property
 * Update the query above to use the params instead for the filtering
