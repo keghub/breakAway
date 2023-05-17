@@ -1,7 +1,7 @@
 ### Create a default page using a layout component with columns and a header component
 
 * In the `src`folder, create a new folder called `components`
-* Remove the default page we got from vercel
+* Remove the content of the default page we got from vercel
 * Update the layout file, using tailwind and typescript, add the following components
   * Add a header
   * Add three columns, with some dummy content
