@@ -45,8 +45,6 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 
 [First Deployment](docs/nextjs/deploy.md)
 
-[Install Tailwind](docs/nextjs/tailwind.md)
-
 [Create your first components](docs/nextjs/first-component.md)
 
 [Read data from sanity](docs/nextjs/read-from-sanity.md)
