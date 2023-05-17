@@ -11,3 +11,5 @@ Here are some suggested queries you can try out:
 * Select everything from the products with a price above a threshold
 * Select a specific product and dereference the site property
 * Update the query above to use the params instead for the filtering
+
+_**Hint:**_ `Ctrl + /` can be used to comment out multiple lines
