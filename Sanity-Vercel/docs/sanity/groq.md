@@ -12,4 +12,4 @@ Here are some suggested queries you can try out:
 * Select a specific product and dereference the site property
 * Update the query above to use the params instead for the filtering
 
-_**Note:**_ `Ctrl + /` can be used to comment out multiple lines
+_**Note:**_ `Ctrl + /` can be used to comment out multiple lines in the query UI
