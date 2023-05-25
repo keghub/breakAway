@@ -12,6 +12,7 @@
 * The goal is to display the names for the list of sites in sanity in one of the `Column` components.
 * Note that to use an async call to load data in react, you can use the `useEffect` hook. See: https://react.dev/reference/react/useEffect
   * Read up about the hook, and make sure you understand how it works
+* [Deploy the app to vercel!](deploy.md)
 
 _Hint:_ If you get a CORS error, you might need to add the url to your nextjs app in the list of allowed CORS-origins in the Sanity Studio management ui (found under the API-section)
 
