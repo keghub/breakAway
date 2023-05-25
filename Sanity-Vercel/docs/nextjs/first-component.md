@@ -3,8 +3,9 @@
 * In the `src`folder, create a new folder called `components`
 * Remove the content of the default page we got from vercel
 * Update the layout file, using [tailwind](tailwind.md) and typescript, add the following components
-  * Add a header
-  * Add three columns, with some dummy content
+  * Add a header-component
+  * Add a column-component
+  * Add some dummy content
 
 
 The page should look something like this:
