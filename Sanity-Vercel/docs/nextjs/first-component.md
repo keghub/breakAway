@@ -13,4 +13,4 @@ The page should look something like this:
 
 Use regular React components for this, we don't use the app/ directory yet in prod
 
-[Deploy the app to vercel!](deploy.md)!
+[Deploy the app to vercel!](deploy.md)
