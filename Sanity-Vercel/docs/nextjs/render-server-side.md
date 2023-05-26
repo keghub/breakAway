@@ -10,6 +10,8 @@ Look into the [documentation](https://nextjs.org/docs/basic-features/data-fetchi
 
 _Note:_ Now that we are using our environment variables server side instead, we can update them so that they are not accessed client side anymore (this is in general preferable). See the documentation: https://nextjs.org/docs/basic-features/environment-variables
 
+_Note 2:_ For these simpler examples we can use the `InferGetServerSidePropsType<typeof getServerSideProps>`, but for more complex scenarios we should aim to use a dedicated interface for the page components.
+
 
 
 ????
