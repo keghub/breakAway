@@ -39,7 +39,7 @@ Fetch the site from sanity, based on the site slug.
 ```
 # file: SiteStaticDataHandler.ts
 
-export class SiteStaticDataHandlers {
+export class SiteStaticDataHandler {
   static async GetSites(): Array<Site> {
     // TODO
   }
