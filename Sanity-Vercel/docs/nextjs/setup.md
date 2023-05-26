@@ -31,6 +31,8 @@ Ok to proceed? (y)
 [Select]  No 
 ```
 
+_Note:_ We are not using the App Router in production, so if you end up with an `src/app` folder when you are done, you have done something wrong. What you should have is a folder called `pages` with an index file.
+
 ### Start the nextjs site locally
 A new folder has been created for your project, move into it, and start the solution by running `npm run dev`. 
 A webpage running on localhost should be opened automatically. 
