@@ -18,5 +18,12 @@ _Hint:_ If you get a CORS error, you might need to add the url to your nextjs ap
 
 ### Part 2:
 
-Use an .env file for all the sensitive information, and use environment variables.
-https://nextjs.org/docs/basic-features/environment-variables
+We want to avoid having secret information hardcoded in the files, and instead move it to the environment variables.
+
+You can read more about using environment variables in nextjs here: https://nextjs.org/docs/basic-features/environment-variables
+
+* In the top level folder of your nextjs application, add a file called `.env.local`
+* Add the project id, dataset and api version to the file. Note that the names needs to be prefixed with `NEXT_PUBLIC_` to assure that we can access them client side (see: https://nextjs.org/docs/basic-features/environment-variables)
+* Update the code for your sanity client to use the new environment variables instead
+* Assure it's still working
+
