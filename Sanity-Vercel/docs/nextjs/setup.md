@@ -25,7 +25,7 @@ Ok to proceed? (y)
 [Select] Yes
 
 √ Use App Router (recommended)? 
-[Select] Yes
+[Select] No
 
 √ Would you like to customize the default import alias? 
 [Select]  No 
