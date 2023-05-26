@@ -19,7 +19,7 @@ Should display the list of sites, and link to the specific site pages
 
 ### Move business logic away from page-components
 * Create a new folder on the same level as the pages folder, call it `handlers`
-* In this new folder, create a file called `SiteStaticDataHandler.ts`. Note that this is not a react file, it's not used for rendering, only for fetching data needed in our component.
+* In this new folder, create a file called `SiteStaticDataHandler.ts` (see below for an example). Note that this is not a react file, it's not used for rendering, only for fetching data needed in our component.
 * Create a static method for fetching the sites in the component.
 * Use this handler in the sites index page and the site page to fetch the data from sanity.
 
