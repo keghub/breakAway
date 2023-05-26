@@ -9,16 +9,13 @@ We want to move the listing of the sites to it's own page. We're also gonna crea
 * In the new folder, create a new typescript file, name it `[slug].tsx`
   * This corresponds to `/sites/[site-slug]`, and will be used to display details of a specific site.
 
+_**Note:**_ The sites folder we created means we have now created a route called sites. The bracket filenaming means that our page can allow a parameter.
+
 ### Home page
 Remove the list of the sites, and instead add a link to the sites index page.
 
 ### Sites Index page
 Should display the list of sites, and link to the specific site pages
-
-### Site page
-Fetch the site from sanity, based on the site slug. 
-* If we can't match to a site, return 404
-* If we find a site, fetch the properties. Send the slogan and color to the header component. (Should display the slogan using the site color as background.)
 
 ### Move business logic away from page-components
 * Create a new folder on the same level as the pages folder, call it `handlers`
@@ -26,12 +23,15 @@ Fetch the site from sanity, based on the site slug.
 * Create a static method for fetching the sites in the component.
 * Use this handler in the sites index page and the site page to fetch the data from sanity.
 
+### Site page
+Fetch the site from sanity, based on the site slug. 
+* If we can't match to a site, return 404
+* If we find a site, fetch the properties from sanity. Send the slogan and color to the header component. (Should display the slogan using the site color as background.)
+
 ### Deploy
 * [Deploy in vercel!](deploy.md)
 
 ---- 
-
-_**Note:**_ The sites folder we created means we have now created a route called sites. The bracket filenaming means that our page can allow a parameter.
 
 Read more about routing https://nextjs.org/docs/routing/introduction
 
@@ -40,7 +40,11 @@ Read more about routing https://nextjs.org/docs/routing/introduction
 # file: SiteStaticDataHandler.ts
 
 export class SiteStaticDataHandlers {
-  static async GetSites(): Array<Site>
-  static async GetSite(slug: string): Site
+  static async GetSites(): Array<Site> {
+    // TODO
+  }
+  static async GetSite(slug: string): Site {
+    // TODO
+  }
 }
 ```
