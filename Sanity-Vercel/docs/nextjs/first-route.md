@@ -2,7 +2,7 @@
 
 We want to move the listing of the sites to it's own page. We're also gonna create a new page for displaying a specific site.
 
-Read more about routing https://nextjs.org/docs/routing/introduction
+Read more about routing https://nextjs.org/docs/routing/introduction (specifically the Dynamic routing)
 
 ### Setup
 * Create a new folder in the pages folder, and name it `sites`
