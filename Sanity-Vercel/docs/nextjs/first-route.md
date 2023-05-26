@@ -2,6 +2,8 @@
 
 We want to move the listing of the sites to it's own page. We're also gonna create a new page for displaying a specific site.
 
+Read more about routing https://nextjs.org/docs/routing/introduction
+
 ### Setup
 * Create a new folder in the pages folder, and name it `sites`
 * In the new folder, create a new typescript file, name it `index.tsx`
@@ -32,8 +34,6 @@ Fetch the site from sanity, based on the site slug.
 * [Deploy in vercel!](deploy.md)
 
 ---- 
-
-Read more about routing https://nextjs.org/docs/routing/introduction
 
 **Example of the `SiteStaticDataHandler`**
 ```
