@@ -29,6 +29,8 @@ Fetch the site from sanity, based on the site slug.
 ### Deploy
 * [Deploy in vercel!](deploy.md)
 
+---- 
+
 _**Note:**_ The sites folder we created means we have now created a route called sites. The bracket filenaming means that our page can allow a parameter.
 
 Read more about routing https://nextjs.org/docs/routing/introduction
