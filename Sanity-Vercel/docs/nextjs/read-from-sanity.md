@@ -26,4 +26,6 @@ You can read more about using environment variables in nextjs here: https://next
 * Add the project id, dataset and api version to the file. Note that the names needs to be prefixed with `NEXT_PUBLIC_` to assure that we can access them client side (see: [docs](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#exposing-environment-variables-to-the-browser))
 * Update the code for your sanity client to use the new environment variables instead
 * Assure it's still working
+* [Deploy the app to vercel!](deploy.md)
+  * Note that we need to add the environment variables in vercel as well to be able to deploy our app now
 
