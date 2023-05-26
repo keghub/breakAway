@@ -51,9 +51,9 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 
 [Render a page server side](docs/nextjs/render-server-side.md)
 
-[Render the page static](docs/nextjs/render-static.md)
-
 [Add a site listing route](docs/nextjs/first-route.md)
+
+[Render the page static](docs/nextjs/render-static.md)
 
 [Add a site route](docs/nextjs/site-route.md)
 
