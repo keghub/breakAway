@@ -55,8 +55,6 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 
 [Render the page static](docs/nextjs/render-static.md)
 
-[Add a site route](docs/nextjs/site-route.md)
-
 [Add a product route](docs/nextjs/product-route.md)
 
 [Add a order button to the product page](docs/nextjs/order-button.md)
