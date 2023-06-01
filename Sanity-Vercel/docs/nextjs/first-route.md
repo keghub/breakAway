@@ -40,11 +40,7 @@ Fetch the site from sanity, based on the site slug.
 # file: SiteStaticDataHandler.ts
 
 export class SiteStaticDataHandler {
-  static async GetSites(): Array<Site> {
-    // TODO
-  }
-  static async GetSite(slug: string): Site {
-    // TODO
-  }
+  static async GetSites()
+  static async GetSite(slug: string)
 }
 ```
