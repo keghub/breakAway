@@ -17,7 +17,9 @@ _**Note:**_ The sites folder we created means we have now created a route called
 Remove the list of the sites, and instead add a link to the sites index page.
 
 ### Sites Index page
-Should display the list of sites, and link to the specific site pages
+Should display the list of sites, and link to the specific site pages.
+
+Read more about linking in a nextjs app here: https://nextjs.org/docs/pages/building-your-application/routing/linking-and-navigating
 
 ### Move business logic away from page-components
 * Create a new folder on the same level as the pages folder, call it `handlers`
