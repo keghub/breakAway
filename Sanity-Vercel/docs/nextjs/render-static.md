@@ -20,7 +20,7 @@ return {
 _Note:_ 
 * The paths parameter tells nextjs and vercel which paths to render at build time. If we leave it empty as above, no paths will be rendererd at build.
 * Fallback blocking means that if there's no page cached, the page will be server side rendered, and then cached.
-* In a real application, we would add the getStaticPaths per dynamic route.
+* In a real application, we would add the getStaticPaths per [dynamic route](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes).
 
 Take some time to read about static rendering at https://nextjs.org/docs/basic-features/data-fetching/get-static-props
 
