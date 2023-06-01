@@ -16,6 +16,7 @@ return {
   fallback: 'blocking',
 };
 ```
+* Update the default `getStaticPaths` to make sure it renders the pages for all the sites (update the paths parameter)
 
 _Note:_ 
 * The paths parameter tells nextjs and vercel which paths to render at build time. If we leave it empty as above, no paths will be rendererd at build.
