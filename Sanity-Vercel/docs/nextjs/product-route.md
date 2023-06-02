@@ -7,7 +7,4 @@
 
 Read more about linking in a nextjs app here: https://nextjs.org/docs/pages/building-your-application/routing/linking-and-navigating
 
-[Deploy!](deploy.md)
-
-
-https://nextjs.org/docs/basic-features/pages#pre-rendering
+[Deploy to vercel!](deploy.md)
