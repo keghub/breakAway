@@ -1,5 +1,5 @@
 ### Create a NextJS project:
-Create a new folder for the "web" project next to the "studio" folder on disk in for the project
+Create a new folder for the "web" project next to the "studio" folder on disk for the project
 
 In the newly created folder, run the following command `npx create-next-app@latest`
 
