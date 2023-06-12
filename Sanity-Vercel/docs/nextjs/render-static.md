@@ -4,7 +4,7 @@ For a nextjs application we can choose between static rendering, server side ren
 
 The difference between static rendering and server side rendering is that static rendered content will be rendererd at build time. The rendered content will then be cached for a specified time.
 
-Using static rendering improves the performance the since everything is ready to be served to the user, but it does increase the build time.
+Using static rendering improves the performance since everything is ready to be served to the user, but it does increase the build time.
 
 **To implement static rendering:**
 * Start with renaming the getServerSideProps to getStaticProps.
