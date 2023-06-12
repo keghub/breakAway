@@ -15,6 +15,8 @@ and
 
 ## Setup
 
+Create a new folder for the project, we will run/install everything in this folder.
+
 Install the CLI for sanity and vercel. They will be used for creating and deploying your projects. 
 
 Sanity CLI
@@ -25,11 +27,11 @@ Vercel CLI
 
 [Setup sanity studio](docs/sanity/setup.md)
 
-[Setup a nextjs project](docs/nextjs/setup.md)
-
 ## Excercises
 
 The execises will go through some of the basic concepts of sanity and nextjs. 
+
+We will be using typescript throughout the excercises, so keep in mind to always write strongly typed code (and avoid `any`).
 
 ## Sanity studio
 
@@ -38,13 +40,12 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 [Add a logo to the studio](docs/sanity/configure-studio.md)
 
 [Your first groq query](docs/sanity/groq.md)
-### First groq query
 
 ## NextJS
 
-[First Deployment](docs/nextjs/deploy.md)
+[Setup a nextjs project](docs/nextjs/setup.md)
 
-[Install Tailwind](docs/nextjs/tailwind.md)
+[First Deployment](docs/nextjs/deploy.md)
 
 [Create your first components](docs/nextjs/first-component.md)
 
@@ -52,11 +53,9 @@ The execises will go through some of the basic concepts of sanity and nextjs.
 
 [Render a page server side](docs/nextjs/render-server-side.md)
 
-[Render the page static](docs/nextjs/render-static.md)
-
 [Add a site listing route](docs/nextjs/first-route.md)
 
-[Add a site route](docs/nextjs/site-route.md)
+[Render the page static](docs/nextjs/render-static.md)
 
 [Add a product route](docs/nextjs/product-route.md)
 

@@ -1,5 +1,10 @@
+### Step 0. Sign up to sanity: 
+
+Create an account on https://www.sanity.io/ (but don't run the suggested "npm create sanity" command
+
 ### Step 1. Create a sanity project: 
-Run command
+
+In the new folder, run command
 
 `npm create sanity@latest`
 
@@ -41,7 +46,7 @@ Package manager to use for installing dependencies?
 
 ### Step 2. Create a schema in sanity
 
-Copy schema files into the schemas. 
+Copy [schema files](../../schemas) into the schemas-folder created in the new studio-folder. 
 
 Deploy the studio using the following command. 
 `sanity deploy`
@@ -65,15 +70,20 @@ Success! Studio deployed to https://breakaway-{identifier}.sanity.studio/
 
 ### Step 3. Populate schema with data. Run seeding script using following command 
 
-Create a token using sanity studio, give the token read and write access to your project. Add the token to your data-seeding config. 
+Copy [seeding folder](../../seeding) into new project folder previously created.
+
+Navigate inside the `seeding`-folder, and run first `npm install`, and then:
 
 `node --experimental-specifier-resolution=node --loader ts-node/esm data-seeding.ts`
 
-Inspect the result data.ndjson file to see what is going to be imported into sanity. Then run the import using the sanity cli
-`sanity dataset import data.ndjson {your-dataset}`
+Inspect the result data.ndjson file to see what is going to be imported into sanity. 
+
+Switch folder back to the `studio`-folder, then run the import using the sanity cli
+
+`sanity dataset import ..\seeding\data.ndjson {your-dataset}`
 
 ### Start the studio
-Start the studio using the command `npm run dev`. A local web page with the studio should start. Notice the entity listed to the right and how you can navigate among the different entities. 
+Start the studio using the command `npm run dev`. A local web page with the studio should start. Notice the entity listed to the left and how you can navigate among the different entities. 
 
 ### Deploy!
 Use the sanity CLI to deploy your new studio
