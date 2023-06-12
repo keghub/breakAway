@@ -2,11 +2,12 @@
 
 * In the `src`folder, create a new folder called `components`
 * Remove the content of the default page we got from vercel
-* Update the layout file, using [tailwind](tailwind.md) and typescript, add the following components
-  * Add a header-component
-  * Add a column-component
-  * Add some dummy content
-
+* Update the layout of the file
+  * Add the following components
+    * Add a header-component
+    * Add a column-component
+  * Add some dummy content that is displayed in the different components
+  * Use [tailwind](tailwind.md) and typescript 
 
 The page should look something like this:
 ![image](https://github.com/emgdev/breakAway/assets/13402342/3d0f5067-e837-4dbf-ac62-e8d83264e099)
