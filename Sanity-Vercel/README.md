@@ -31,6 +31,8 @@ Vercel CLI
 
 The execises will go through some of the basic concepts of sanity and nextjs. 
 
+We will be using typescript throughout the excercises, so keep in mind to always write strongly typed code (and avoid `any`).
+
 ## Sanity studio
 
 [Add a field](docs/sanity/add-field.md)
