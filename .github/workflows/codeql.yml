@@ -59,6 +59,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Configure custom NuGet sources
+      run: |
+        dotnet nuget add source https://www.myget.org/F/emgprivate/auth/${{ secrets.EMG_PRIVATE_API_KEY }}/api/v3/index.json -n EMGPrivate
+        dotnet nuget list source
+
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
