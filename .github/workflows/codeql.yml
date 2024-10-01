@@ -62,6 +62,7 @@ jobs:
     - name: Configure custom NuGet sources
       run: |
         dotnet nuget add source https://www.myget.org/F/emgprivate/auth/${{ secrets.EMG_PRIVATE_API_KEY }}/api/v3/index.json -n EMGPrivate
+        dotnet nuget add source https://www.myget.org/F/emg/api/v3/index.json -n EMGPublic
         dotnet nuget list source
 
     # Initializes the CodeQL tools for scanning.
