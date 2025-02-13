@@ -26,3 +26,5 @@ jobs:
       - uses: actions/checkout@master
       - name: resharper
         uses: glassechidna/resharper-action@master
+        with:
+          solution: --no-restore
