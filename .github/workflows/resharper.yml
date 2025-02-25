@@ -25,19 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-      - name: Restore workloads  
-        working-directory: ./Pure
-        run:  dotnet workload restore ./Web/Web.csproj
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: ./Pure
-      - name: Build
-        run: dotnet build --no-restore
-        working-directory: ./Pure
       - name: resharper
         uses: JetBrains/ReSharper-InspectCode@main
         with:
