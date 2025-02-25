@@ -28,7 +28,7 @@ jobs:
       - name: resharper
         uses: JetBrains/ReSharper-InspectCode@main
         with:
-          solution: Pure/BreakAway.sln
+          solution: Solid/Solid.sln
           format: text
           output: resharper-output.txt
           swea: true
